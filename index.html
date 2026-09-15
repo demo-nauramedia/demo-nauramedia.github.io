@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VALKYRIE & CO. | Modern Legal Counsel</title>
+    <title>MNF & Partners | Modern Legal Counsel</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
@@ -93,13 +93,14 @@
         }
 
         .btn-ghost {
-            background: transparent;
+            background: rgba(7, 15, 30, 0.6);
             color: var(--text-white);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
         }
 
         .btn-ghost:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
             border-color: var(--gold-accent);
             color: var(--gold-accent);
         }
@@ -146,11 +147,14 @@
 
         .nav-link:hover { color: var(--gold-accent); }
 
-        /* HERO SECTION */
+        /* HERO SECTION WITH LAW FIRM BACKGROUND */
         .hero-section {
-            padding-top: 170px;
-            padding-bottom: 90px;
+            padding-top: 180px;
+            padding-bottom: 110px;
             position: relative;
+            background: linear-gradient(135deg, rgba(7, 15, 30, 0.92) 0%, rgba(15, 28, 46, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            border-bottom: 1px solid rgba(229, 193, 88, 0.15);
         }
 
         .hero-grid {
@@ -183,11 +187,12 @@
 
         /* QUICK ASSESSMENT CARD */
         .hero-card {
-            background: var(--navy-card);
+            background: rgba(15, 28, 46, 0.9);
+            backdrop-filter: blur(16px);
             padding: 36px;
             border-radius: var(--radius-lg);
-            border: 1px solid rgba(229, 193, 88, 0.2);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid rgba(229, 193, 88, 0.25);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         }
 
         .hero-card h3 {
@@ -406,7 +411,7 @@
         .price-list li { margin-bottom: 12px; font-size: 0.9rem; color: var(--text-slate); display: flex; gap: 10px; align-items: center; }
         .price-list li i { color: var(--gold-accent); font-size: 0.8rem; }
 
-        /* CONTACT & MAPS SECTION (FEATURE BARU) */
+        /* CONTACT & MAPS SECTION */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -470,7 +475,7 @@
             width: 100%;
             height: 100%;
             border: 0;
-            filter: grayscale(80%) invert(90%) contrast(120%); /* Custom styling dark mode map */
+            filter: grayscale(80%) invert(90%) contrast(120%);
         }
 
         /* FOOTER */
@@ -518,20 +523,20 @@
     <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="container nav-wrap">
-            <a href="#" class="brand-logo">VALKYRIE <span>& CO.</span></a>
+            <a href="#" class="brand-logo">MNF <span>& Partners.</span></a>
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">Keunggulan</a></li>
                 <li><a href="#services" class="nav-link">Praktik Hukum</a></li>
-                <li><a href="#gallery" class="nav-link">Galeri Klien</a></li>
+                <li><a href="#gallery" class="nav-link">Galeri</a></li>
                 <li><a href="#cases" class="nav-link">Rekam Jejak</a></li>
                 <li><a href="#retainer" class="nav-link">Skema Kerjasama</a></li>
-                <li><a href="#contact" class="nav-link">Kontak & Lokasi</a></li>
+                <li><a href="#contact" class="nav-link">Kontak Kami</a></li>
             </ul>
             <a href="#contact" class="btn btn-gold"><i class="fa-brands fa-whatsapp"></i> Hubungi Kami</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION WITH BACKGROUND IMAGE -->
     <section class="hero-section">
         <div class="container hero-grid">
             <div>
@@ -789,7 +794,7 @@
         </div>
     </section>
 
-    <!-- CONTACT & MAPS SECTION (NEW FEATURE) -->
+    <!-- CONTACT & MAPS SECTION -->
     <section id="contact" class="section">
         <div class="container">
             <div style="text-align: center; margin-bottom: 40px;">
@@ -808,7 +813,7 @@
                             <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
                             <div class="contact-text">
                                 <h5>Alamat Utama</h5>
-                                <p>Pacific Century Place, Lt. 18<br>SCBD Lot 10, Jl. Jend. Sudirman, Jakarta Selatan 12190</p>
+                                <p>Jl. Semarang Indah Blok D VI No.1B, Tawangmas, Kec. Semarang Barat, Kota Semarang, Jawa Tengah 50144</p>
                             </div>
                         </div>
 
@@ -816,7 +821,7 @@
                             <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
                             <div class="contact-text">
                                 <h5>Telepon & Hotline</h5>
-                                <p>T: +62 21 8899 7766<br>WA (Quick Response): +62 812 9988 7766</p>
+                                <p>T: +62 811 255 7777<br>WA (Quick Response): +62 811 255 7777</p>
                             </div>
                         </div>
 
@@ -824,7 +829,7 @@
                             <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
                             <div class="contact-text">
                                 <h5>Email Pertanyaan</h5>
-                                <p>General: office@valkyrielaw.id<br>Consultation: client@valkyrielaw.id</p>
+                                <p>General: muchamadnurfadeli@gmail.com<br>Consultation: muchamadnurfadeli@gmail.com</p>
                             </div>
                         </div>
 
@@ -838,7 +843,7 @@
                     </div>
 
                     <div style="display: flex; gap: 12px; margin-top: 20px;">
-                        <a href="https://wa.me/6281299887766" target="_blank" class="btn btn-gold" style="width: 100%;">
+                        <a href="https://wa.me/628112557777" target="_blank" class="btn btn-gold" style="width: 100%;">
                             <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
                         </a>
                     </div>
@@ -846,7 +851,7 @@
 
                 <!-- Google Maps Embed Modern Dark Style -->
                 <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.273648480749!2d106.80687797499039!3d-6.227672893760431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f15037d03bb1%3A0xb36bd2ec2fb2e196!2sPacific%20Century%20Place!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3389478229697!2d110.3954318758919!3d-6.969280668241945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70f56601caec37%3A0x2dc1c3ee17a1ab4!2sLaw%20Firm%20MUCHAMAD%20NUR%20FADELI%20%26%20PARTNERS!5e0!3m2!1sid!2sid!4v1789460553867!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                 </div>
             </div>
         </div>
@@ -872,18 +877,18 @@
                 <div class="footer-col">
                     <h5>Kontak Klien</h5>
                     <ul class="footer-links">
-                        <li><a href="#">SCBD Jakarta</a></li>
-                        <li><a href="#">+62 21 8899 7766</a></li>
-                        <li><a href="#">office@valkyrielaw.id</a></li>
+                        <li><a href="https://maps.app.goo.gl/hpd5wqwrr2d8cNpR6" target="_blank">Semarang Indah, Semarang</a></li>
+                        <li><a href="https://wa.me/628112557777" target="_blank">+62 811 255 7777</a></li>
+                        <li><a href="mailto:muchamadnurfadeli@gmail.com">muchamadnurfadeli@gmail.com</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h5>Head Office</h5>
-                    <p style="font-size: 0.85rem;">Pacific Century Place, Lt. 18<br>SCBD Lot 10, Jakarta Selatan 12190</p>
+                    <p style="font-size: 0.85rem;">Jl. Semarang Indah Blok D VI No.1B, Tawangmas, Kec. Semarang Barat, Kota Semarang, Jawa Tengah 50144</p>
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2026 VALKYRIE & CO. Advocates & Legal Consultants. All Rights Reserved.
+                &copy; 2026 MNF & Partners. Advocates & Legal Consultants. All Rights Reserved.
             </div>
         </div>
     </footer>
