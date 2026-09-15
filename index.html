@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VALKYRIE & CO. | Modern Legal Counsel</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --navy-dark: #070F1E;
+            --navy-card: #0F1C2E;
+            --navy-light: #18283E;
+            --gold-accent: #E5C158;
+            --gold-gradient: linear-gradient(135deg, #F3D068 0%, #B88E28 100%);
+            --text-white: #FFFFFF;
+            --text-slate: #94A3B8;
+            --bg-light: #FAFAFC;
+            --font-head: 'Syne', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--navy-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section { padding: 100px 0; }
+
+        /* BADGE & BUTTONS */
+        .badge-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: rgba(229, 193, 88, 0.1);
+            border: 1px solid rgba(229, 193, 88, 0.3);
+            color: var(--gold-accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: var(--navy-dark);
+            box-shadow: 0 4px 20px rgba(229, 193, 88, 0.25);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(229, 193, 88, 0.4);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-white);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--gold-accent);
+            color: var(--gold-accent);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            padding: 24px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(7, 15, 30, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-family: var(--font-head);
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-logo span { color: var(--gold-accent); }
+
+        .nav-menu {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            color: var(--text-slate);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-link:hover { color: var(--gold-accent); }
+
+        /* HERO SECTION */
+        .hero-section {
+            padding-top: 170px;
+            padding-bottom: 90px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-head);
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+
+        .hero-title .highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-slate);
+            margin-bottom: 36px;
+            max-width: 540px;
+        }
+
+        /* QUICK ASSESSMENT CARD */
+        .hero-card {
+            background: var(--navy-card);
+            padding: 36px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(229, 193, 88, 0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .hero-card h3 {
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .hero-card p {
+            font-size: 0.85rem;
+            color: var(--text-slate);
+            margin-bottom: 24px;
+        }
+
+        .input-group { margin-bottom: 16px; }
+
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--navy-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+            border-color: var(--gold-accent);
+        }
+
+        /* WHY US CARDS */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .why-card {
+            background: var(--navy-card);
+            padding: 32px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            border-color: var(--gold-accent);
+            transform: translateY(-5px);
+        }
+
+        .why-num {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            color: var(--gold-accent);
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        /* SERVICES SECTION */
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-box {
+            background: linear-gradient(180deg, var(--navy-card) 0%, var(--navy-light) 100%);
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon-wrap {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: rgba(229, 193, 88, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-accent);
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .service-box h4 {
+            font-family: var(--font-head);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .service-box p {
+            color: var(--text-slate);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* CLIENT GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 280px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(7, 15, 30, 0) 20%, rgba(7, 15, 30, 0.95) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            transition: var(--transition);
+        }
+
+        .gallery-tag {
+            font-size: 0.75rem;
+            color: var(--gold-accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .gallery-overlay h4 {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            color: var(--text-white);
+        }
+
+        .gallery-overlay p {
+            font-size: 0.8rem;
+            color: var(--text-slate);
+            margin-top: 4px;
+        }
+
+        /* CASE RESULTS SECTION */
+        .cases-wrapper {
+            background: var(--navy-card);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .case-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 30px;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            align-items: center;
+        }
+
+        .case-item:last-child { border-bottom: none; }
+        .case-tag { font-size: 0.8rem; color: var(--gold-accent); font-weight: 600; }
+
+        /* PRICING / RETAINER OPTIONS */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .price-card {
+            background: var(--navy-card);
+            padding: 40px 32px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .price-card.featured {
+            border-color: var(--gold-accent);
+            background: linear-gradient(180deg, rgba(229, 193, 88, 0.05) 0%, var(--navy-card) 100%);
+        }
+
+        .price-title { font-family: var(--font-head); font-size: 1.4rem; margin-bottom: 8px; }
+        .price-sub { color: var(--text-slate); font-size: 0.85rem; margin-bottom: 24px; }
+        .price-list { list-style: none; margin-bottom: 32px; }
+        .price-list li { margin-bottom: 12px; font-size: 0.9rem; color: var(--text-slate); display: flex; gap: 10px; align-items: center; }
+        .price-list li i { color: var(--gold-accent); font-size: 0.8rem; }
+
+        /* CONTACT & MAPS SECTION (FEATURE BARU) */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-card-info {
+            background: var(--navy-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(229, 193, 88, 0.1);
+            border: 1px solid rgba(229, 193, 88, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-accent);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h5 {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-text p {
+            color: var(--text-slate);
+            font-size: 0.9rem;
+        }
+
+        /* MAP CONTAINER */
+        .map-wrapper {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(229, 193, 88, 0.3);
+            height: 100%;
+            min-height: 380px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(80%) invert(90%) contrast(120%); /* Custom styling dark mode map */
+        }
+
+        /* FOOTER */
+        footer {
+            background: #030710;
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col p { color: var(--text-slate); font-size: 0.9rem; margin-top: 16px; }
+        .footer-col h5 { font-family: var(--font-head); font-size: 1.1rem; margin-bottom: 20px; color: var(--gold-accent); }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--text-slate); font-size: 0.9rem; transition: var(--transition); }
+        .footer-links a:hover { color: var(--text-white); }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-slate);
+            font-size: 0.8rem;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .hero-grid, .service-grid, .why-grid, .pricing-grid, .gallery-grid, .contact-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.8rem; }
+            .nav-menu { display: none; }
+            .case-item { grid-template-columns: 1fr; gap: 10px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .map-wrapper { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="container nav-wrap">
+            <a href="#" class="brand-logo">VALKYRIE <span>& CO.</span></a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">Keunggulan</a></li>
+                <li><a href="#services" class="nav-link">Praktik Hukum</a></li>
+                <li><a href="#gallery" class="nav-link">Galeri Klien</a></li>
+                <li><a href="#cases" class="nav-link">Rekam Jejak</a></li>
+                <li><a href="#retainer" class="nav-link">Skema Kerjasama</a></li>
+                <li><a href="#contact" class="nav-link">Kontak & Lokasi</a></li>
+            </ul>
+            <a href="#contact" class="btn btn-gold"><i class="fa-brands fa-whatsapp"></i> Hubungi Kami</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container hero-grid">
+            <div>
+                <div class="badge-gold"><i class="fa-solid fa-shield-halved"></i> Modern Legal Architecture</div>
+                <h1 class="hero-title">Kepastian Hukum Strategis untuk <span class="highlight">Bisnis & Masa Depan Anda.</span></h1>
+                <p class="hero-desc">Kami memadukan pemikiran strategis, kecepatan adaptasi teknologi, dan wawasan hukum mendalam untuk melindungi aset serta ekspansi bisnis Anda.</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <a href="#services" class="btn btn-gold">Eksplorasi Layanan</a>
+                    <a href="#gallery" class="btn btn-ghost">Lihat Aktivitas Kami</a>
+                </div>
+            </div>
+
+            <!-- QUICK ASSESSMENT FORM CARD -->
+            <div class="hero-card">
+                <h3>Analisis Kasus Cepat</h3>
+                <p>Isi formulir ringkas ini untuk evaluasi legalitas awal dari konsultan senior kami.</p>
+                <form action="#">
+                    <div class="input-group">
+                        <input type="text" placeholder="Nama Lengkap / Perusahaan" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Alamat Email Bisnis" required>
+                    </div>
+                    <div class="input-group">
+                        <select required>
+                            <option value="" disabled selected>Pilih Kategori Kebutuhan</option>
+                            <option value="corporate">Hukum Bisnis & Investasi</option>
+                            <option value="litigation">Sengketa & Litigasi</option>
+                            <option value="property">Pertanahan & Properti</option>
+                            <option value="hki">Hak Kekayaan Intelektual</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-gold" style="width: 100%;">Mulai Dapatkan Konsultasi</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="about" class="section" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div class="badge-gold">Pendekatan Kami</div>
+            <h2 style="font-family: var(--font-head); font-size: 2.2rem; max-width: 600px;">Mengubah Kompleksitas Hukum Menjadi Solusi Praktis</h2>
+            
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-num">01.</div>
+                    <h4 style="font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 10px;">Proaktif, Bukan Sekadar Reaktif</h4>
+                    <p style="color: var(--text-slate); font-size: 0.9rem;">Kami merancang struktur hukum proaktif untuk mencegah risiko sengketa sejak awal transaksi bisnis Anda.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-num">02.</div>
+                    <h4 style="font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 10px;">Transparansi & Efisiensi</h4>
+                    <p style="color: var(--text-slate); font-size: 0.9rem;">Komunikasi tanpa istilah hukum yang rumit (*plain language advice*) dengan estimasi waktu & biaya yang jelas.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-num">03.</div>
+                    <h4 style="font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 10px;">Perspektif Bisnis Modern</h4>
+                    <p style="color: var(--text-slate); font-size: 0.9rem;">Memahami ekosistem digital, *startups*, transaksi lintas batas, hingga skema pendanaan investasi modern.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRACTICE AREAS -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="service-header">
+                <div>
+                    <div class="badge-gold">Spesialisasi Utamanya</div>
+                    <h2 style="font-family: var(--font-head); font-size: 2.2rem;">Praktik Hukum Fokus & Terukur</h2>
+                </div>
+            </div>
+
+            <div class="service-grid">
+                <div class="service-card service-box">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+                    <h4>Corporate & Venture Capital</h4>
+                    <p>Pendampingan investasi, *joint venture*, restrukturisasi perusahaan, dan penyusunan draf transaksi bernilai tinggi.</p>
+                    <a href="#contact" style="color: var(--gold-accent); font-size: 0.85rem; font-weight: 600;">Pelajari Selengkapnya →</a>
+                </div>
+
+                <div class="service-card service-box">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-gavel"></i></div>
+                    <h4>Commercial Dispute Resolution</h4>
+                    <p>Mewakili kepentingan perdata/bisnis Anda di forum arbitrase nasional/internasional maupun pengadilan negeri.</p>
+                    <a href="#contact" style="color: var(--gold-accent); font-size: 0.85rem; font-weight: 600;">Pelajari Selengkapnya →</a>
+                </div>
+
+                <div class="service-card service-box">
+                    <div class="service-icon-wrap"><i class="fa-solid fa-microchip"></i></div>
+                    <h4>Tech, IP & Data Privacy</h4>
+                    <p>Perlindungan hak paten/merek, kepatuhan Perlindungan Data Pribadi (PDP), dan hukum teknologi informasi.</p>
+                    <a href="#contact" style="color: var(--gold-accent); font-size: 0.85rem; font-weight: 600;">Pelajari Selengkapnya →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENT GALLERY -->
+    <section id="gallery" class="section" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <div class="badge-gold">Aktivitas & Kemitraan</div>
+                <h2 style="font-family: var(--font-head); font-size: 2.2rem;">Dokumentasi & Pertemuan Klien</h2>
+                <p style="color: var(--text-slate); font-size: 0.95rem; max-width: 600px; margin: 10px auto 0;">Sekilas gambaran profesionalisme tim kami saat mendampingi klien korporasi, pendandatanganan kesepakatan, dan diskusi strategis.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=700&q=80" alt="Corporate Meeting">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Corporate Meeting</span>
+                        <h4>Pendampingan Transaksi M&A</h4>
+                        <p>Diskusi finalisasi draf perjanjian investasi bersama jajaran direksi klien.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=700&q=80" alt="Signing Ceremony">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Signing Ceremony</span>
+                        <h4>Penandatanganan Retainer Legal</h4>
+                        <p>Kemitraan pendampingan hukum tahunan untuk grup perusahaan manufaktur.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=700&q=80" alt="Legal Workshop">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Client Workshop</span>
+                        <h4>Edukasi Kepatuhan PDP & HKI</h4>
+                        <p>Sesi internal training kepatuhan hukum data pribadi untuk tim tech client.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80" alt="Consultation">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">One-on-One Advisory</span>
+                        <h4>Konsultasi Strategi Litigasi</h4>
+                        <p>Sesi pendalaman bukti bersama klien sebelum proses mediasi bisnis.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80" alt="HQ Office">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Headquarters</span>
+                        <h4>Kunjungan Klien di Office HQ</h4>
+                        <p>Pertemuan tatap muka santai di boardroom kantor SCBD kami.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=700&q=80" alt="Court Preparation">
+                    <div class="gallery-overlay">
+                        <span class="gallery-tag">Court Preparation</span>
+                        <h4>Briefing Tim Advokat Utama</h4>
+                        <p>Persiapan dokumen pembuktian sidang perkara perdata komersial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE HIGHLIGHTS -->
+    <section id="cases" class="section">
+        <div class="container">
+            <div class="badge-gold">Rekam Jejak</div>
+            <h2 style="font-family: var(--font-head); font-size: 2.2rem; margin-bottom: 40px;">Hasil & Pencapaian Kasus</h2>
+
+            <div class="cases-wrapper">
+                <div class="case-item">
+                    <span class="case-tag">HUKUM KORPORASI</span>
+                    <div>
+                        <h4 style="font-family: var(--font-head); font-size: 1.1rem;">Akuisisi Perusahaan Manufaktur Lintas Negara</h4>
+                        <p style="color: var(--text-slate); font-size: 0.85rem;">Menangani legal audit & restrukturisasi aset senilai USD 15+ Juta.</p>
+                    </div>
+                    <div style="text-align: right; font-weight: 700; color: var(--gold-accent);">SELESAI</div>
+                </div>
+
+                <div class="case-item">
+                    <span class="case-tag">SENGKETA TANAH</span>
+                    <div>
+                        <h4 style="font-family: var(--font-head); font-size: 1.1rem;">Penyelesaian Sengketa Tanah Industri di Jabodetabek</h4>
+                        <p style="color: var(--text-slate); font-size: 0.85rem;">Berhasil mengamankan sertifikat dan hak kepemilikan lahan seluas 12 Hektar.</p>
+                    </div>
+                    <div style="text-align: right; font-weight: 700; color: var(--gold-accent);">SELESAI</div>
+                </div>
+
+                <div class="case-item">
+                    <span class="case-tag">HAKI & LISENSI</span>
+                    <div>
+                        <h4 style="font-family: var(--font-head); font-size: 1.1rem;">Defensif Gugatan Merek Dagang Internasional</h4>
+                        <p style="color: var(--text-slate); font-size: 0.85rem;">Memenangkan hak eksklusif penggunaan merek bagi klien FMCG nasional.</p>
+                    </div>
+                    <div style="text-align: right; font-weight: 700; color: var(--gold-accent);">SELESAI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING / RETAINER OPTIONS -->
+    <section id="retainer" class="section" style="background: rgba(255,255,255,0.01);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <div class="badge-gold">Model Kerjasama</div>
+                <h2 style="font-family: var(--font-head); font-size: 2.2rem;">Skema Pendampingan Hukum</h2>
+                <p style="color: var(--text-slate); font-size: 0.95rem;">Pilih skema penanganan hukum yang relevan dengan skala kebutuhan Anda.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div>
+                        <div class="price-title">Project-Based</div>
+                        <div class="price-sub">Cocok untuk penanganan kasus spesifik/insidental.</div>
+                        <ul class="price-list">
+                            <li><i class="fa-solid fa-check"></i> Audit dokumen hukum tertentu</li>
+                            <li><i class="fa-solid fa-check"></i> Penyusunan 1 Kontrak Khusus</li>
+                            <li><i class="fa-solid fa-check"></i> Pendampingan Negosiasi</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn btn-ghost" style="width: 100%;">Pilih Paket Ini</a>
+                </div>
+
+                <div class="price-card featured">
+                    <div>
+                        <div class="badge-gold" style="margin-bottom: 10px;">Paling Populer</div>
+                        <div class="price-title">Corporate Retainer</div>
+                        <div class="price-sub">Tim Hukum internal virtual untuk operasional bisnis harian.</div>
+                        <ul class="price-list">
+                            <li><i class="fa-solid fa-check"></i> Konsultasi Rutin Tanpa Batas</li>
+                            <li><i class="fa-solid fa-check"></i> Review Kontrak & Perizinan</li>
+                            <li><i class="fa-solid fa-check"></i> Penanganan Isu Ketenagakerjaan</li>
+                            <li><i class="fa-solid fa-check"></i> Prioritas Respons &lt; 4 Jam</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn btn-gold" style="width: 100%;">Langsung Berlangganan</a>
+                </div>
+
+                <div class="price-card">
+                    <div>
+                        <div class="price-title">Litigation / Trial</div>
+                        <div class="price-sub">Pendampingan penuh untuk jalur pengadilan/arbitrase.</div>
+                        <ul class="price-list">
+                            <li><i class="fa-solid fa-check"></i> Strategi & Riset Litigasi</li>
+                            <li><i class="fa-solid fa-check"></i> Pendampingan di Kepolisian/Pengadilan</li>
+                            <li><i class="fa-solid fa-check"></i> Penyiapan Alat Bukti & Saksi</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn btn-ghost" style="width: 100%;">Konsultasikan Kasus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & MAPS SECTION (NEW FEATURE) -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <div class="badge-gold">Hubungi Kami</div>
+                <h2 style="font-family: var(--font-head); font-size: 2.2rem;">Lokasi Kantor & Layanan Kontak</h2>
+                <p style="color: var(--text-slate); font-size: 0.95rem;">Jadwalkan kunjungan tatap muka atau hubungi tim respons cepat kami.</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Kontak & Informasi Kantor -->
+                <div class="contact-card-info">
+                    <div>
+                        <h3 style="font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 24px;">Informasi Head Office</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-text">
+                                <h5>Alamat Utama</h5>
+                                <p>Pacific Century Place, Lt. 18<br>SCBD Lot 10, Jl. Jend. Sudirman, Jakarta Selatan 12190</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-text">
+                                <h5>Telepon & Hotline</h5>
+                                <p>T: +62 21 8899 7766<br>WA (Quick Response): +62 812 9988 7766</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-text">
+                                <h5>Email Pertanyaan</h5>
+                                <p>General: office@valkyrielaw.id<br>Consultation: client@valkyrielaw.id</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="contact-text">
+                                <h5>Jam Operasional</h5>
+                                <p>Senin - Jumat: 08:30 - 18:00 WIB<br>Sabtu - Minggu: Janji Temu Khusus</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 12px; margin-top: 20px;">
+                        <a href="https://wa.me/6281299887766" target="_blank" class="btn btn-gold" style="width: 100%;">
+                            <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed Modern Dark Style -->
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.273648480749!2d106.80687797499039!3d-6.227672893760431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f15037d03bb1%3A0xb36bd2ec2fb2e196!2sPacific%20Century%20Place!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="brand-logo">MNF <span>& Partners</span></a>
+                    <p>Firma hukum modern yang menghadirkan kepastian hukum, integritas, dan strategi berstandar tinggi.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Navigasi</h5>
+                    <ul class="footer-links">
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#services">Layanan Spesialis</a></li>
+                        <li><a href="#gallery">Galeri Klien</a></li>
+                        <li><a href="#cases">Rekam Jejak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Kontak Klien</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">SCBD Jakarta</a></li>
+                        <li><a href="#">+62 21 8899 7766</a></li>
+                        <li><a href="#">office@valkyrielaw.id</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Head Office</h5>
+                    <p style="font-size: 0.85rem;">Pacific Century Place, Lt. 18<br>SCBD Lot 10, Jakarta Selatan 12190</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 VALKYRIE & CO. Advocates & Legal Consultants. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
