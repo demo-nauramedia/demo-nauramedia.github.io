@@ -105,37 +105,47 @@
             color: var(--gold-accent);
         }
 
-        /* NAVBAR */
+        /* NAVBAR (DIBERSIHKAN & DIBUAT SEJAJAR RAPI 1 BARIS) */
         .navbar {
-            padding: 24px 0;
+            padding: 18px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(7, 15, 30, 0.85);
+            background: rgba(7, 15, 30, 0.9);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .nav-wrap {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center; /* Memastikan semua elemen sejajar vertikal di tengah */
+            gap: 20px;
         }
 
         .brand-logo {
             font-family: var(--font-head);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 800;
             letter-spacing: -0.5px;
+            white-space: nowrap; /* MENCEGAH LOGO PATAH JADI 2 BARIS */
+            display: flex;
+            align-items: center;
         }
 
-        .brand-logo span { color: var(--gold-accent); }
+        .brand-logo span { 
+            color: var(--gold-accent); 
+            margin-left: 6px;
+        }
 
         .nav-menu {
             display: flex;
-            gap: 36px;
+            align-items: center; /* Sejajar vertikal */
+            gap: 24px; /* Jarak antar menu pas agar tidak sesak */
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-link {
@@ -143,9 +153,13 @@
             color: var(--text-slate);
             transition: var(--transition);
             font-weight: 500;
+            white-space: nowrap; /* MENCEGAH TEKS MENU SEPERTI 'PRAKTIK HUKUM' TURUN BARIS */
+            display: inline-block;
         }
 
-        .nav-link:hover { color: var(--gold-accent); }
+        .nav-link:hover { 
+            color: var(--gold-accent); 
+        }
 
         /* HERO SECTION WITH LAW FIRM BACKGROUND */
         .hero-section {
@@ -526,9 +540,9 @@
             <a href="#" class="brand-logo">MNF <span>& Partners.</span></a>
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">Keunggulan</a></li>
-                <li><a href="#services" class="nav-link">Layanan</a></li>
+                <li><a href="#services" class="nav-link">Praktik Hukum</a></li>
                 <li><a href="#gallery" class="nav-link">Galeri</a></li>
-                <li><a href="#cases" class="nav-link">History</a></li>
+                <li><a href="#cases" class="nav-link">Rekam Jejak</a></li>
                 <li><a href="#retainer" class="nav-link">Skema Kerjasama</a></li>
                 <li><a href="#contact" class="nav-link">Kontak Kami</a></li>
             </ul>
